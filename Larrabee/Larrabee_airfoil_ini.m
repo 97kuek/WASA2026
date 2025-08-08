@@ -1,0 +1,17 @@
+%% File: Larrabee_airfoil_ini.m
+%--------------------------------
+%   CL,CD,αの値を直接定義 (Larrabee_airfoil_ini.m)
+%--------------------------------
+%翼型解析データがない場合に直接CL,CD,alphaを指定して計算させる
+%var_Re.matがなく、Re変数が読み込めない時も有効
+
+%-----------変更可能------------
+Re = linspace(150000,150000,length(r));   % レイノルズ数
+% Cl は Larrabee_input で定義済み
+Cd = 0.01;                      %（局所）抗力係数
+alpha_deg = 4;                  %迎え角α[degree]
+%-------------------------------
+
+alpha = alpha_deg .* pi/180;    %迎え角α[rad]
+DL = Cd ./ Cl;                  %D/L：揚抗比の逆数
+Tc = 2*T / (rho*V^2*pi*R^2);    %推力係数Tc
