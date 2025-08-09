@@ -2,12 +2,11 @@
 ## Contents
 ### Larrabee
 - Larrabeeの方法によるプロペラ設計プログラム
-- 翼型をCADに出力するプログラムは書き途中です
-#### Larrabee.m
+#### Larrabee_main.m
 - 実行すべきmファイル。ここから以下の各々のサブルーチンを実行する。
 #### Larrabee_input.m
 - プロペラの設定値を決める。ここの値を変えることで様々な条件のプロペラが設計できる。
-#### readXFLR
+#### readXFLR.m
 - XFLR５で解析したairfoilフォルダ内のtxtフィイルを読み込み、 data_matという多次元配列に代入する。 例えば、'pelafoil_T1_Re0.01_M0.00_N9.0.txt'のようなファイルが必要。 それぞれの翼型に変えたければ中身のfoil_nameの値を変える。 レイノルズ数の数や値を変えたければRelistを変える。レイノルズ数は使用する領域より幅広く取ってやるとエラーが少なくなる。
 #### Larrabee_airfoil.m
 - Larrabee_airfoil_ini.mではCd（抗力係数）とalpha（迎え角）を自分で決めるが、readXFLR.mで翼型の解析データが読み込めればCdとalphaをCl（揚力係数）とRe（レイノルズ数）の2変数関数と置いて、(Cd = f(Re,Cl), alpha = f(Re,Cl))自分で決めたClの値と前回の計算から持ってきたReからCd、alphaを求める。
