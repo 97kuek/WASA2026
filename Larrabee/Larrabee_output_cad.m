@@ -50,10 +50,9 @@ for i = 1:length(r)
     end
 end
 
-% ファイル書き出し例（コメントアウト解除で有効）
-% cad_filename = 'CADfile.csv';
-% fid = fopen(cad_filename, 'wt');
-% for i = 1:size(cross_section,1)
-%     fprintf(fid,'%f,%f,%f\n',cross_section(i,1),cross_section(i,2),cross_section(i,3));
-% end
-% fclose(fid);
+cad_filename = 'CADfile.csv';
+fid = fopen(cad_filename, 'wt');
+for i = 1:size(cross_section,1)
+    fprintf(fid,'%f,%f,%f\n',cross_section(i,1),cross_section(i,2),cross_section(i,3));
+end
+fclose(fid);

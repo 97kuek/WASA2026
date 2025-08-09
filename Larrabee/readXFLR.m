@@ -12,6 +12,9 @@ for i = 1:12
     dataname   = strcat(dir_name, foil_name, datafile_1, datafile_2, datafile_3);
 
     fpr = fopen(dataname);      % ファイルオープン
+if fpr == -1
+    error('readXFLR:FileNotFound', 'ファイルが開けません: %s', dataname);
+end
 
     while true
         buffer = fscanf(fpr,'%c',[1,1]);
